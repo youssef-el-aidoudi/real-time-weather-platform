@@ -1,0 +1,44 @@
+table_name: weather_report
+main_dttm_col: weather_time_local
+description: >
+  Real-time weather observations for French cities, transformed by dbt.
+  Source: Open-Meteo API → raw_weather_data → stg_weather_data → weather_report.
+schema: dev
+uuid: 22222222-2222-4222-8222-222222222222
+database_uuid: 11111111-1111-4111-8111-111111111111
+columns:
+  - column_name: id
+    type: INTEGER
+    groupby: false
+    filterable: true
+  - column_name: city
+    type: TEXT
+    groupby: true
+    filterable: true
+  - column_name: temperature
+    type: DOUBLE PRECISION
+    groupby: false
+    filterable: true
+  - column_name: weather_description
+    type: TEXT
+    groupby: true
+    filterable: true
+  - column_name: wind_speed
+    type: DOUBLE PRECISION
+    groupby: false
+    filterable: true
+  - column_name: weather_time_local
+    type: TIMESTAMP WITHOUT TIME ZONE
+    is_dttm: true
+    groupby: true
+    filterable: true
+  - column_name: inserted_at_local
+    type: TIMESTAMP WITHOUT TIME ZONE
+    is_dttm: true
+    groupby: true
+    filterable: true
+metrics:
+  - metric_name: record_count
+    expression: COUNT(*)
+    description: Total number of weather observations
+version: 1.0.0

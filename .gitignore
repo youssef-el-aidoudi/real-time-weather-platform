@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+
+postgres/data/
+dbt/logs/
+dbt/target/
+
+.env
+.env.local
+
+.pytest_cache/
+dbt/dbt_packages/
+
+dbt/.user.yml

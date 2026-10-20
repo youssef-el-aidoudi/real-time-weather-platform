@@ -1,0 +1,27 @@
+slice_name: Live Weather Observations
+description: Latest detailed weather readings
+viz_type: table
+params:
+  datasource: 0__table
+  viz_type: table
+  query_mode: raw
+  all_columns:
+    - weather_time_local
+    - city
+    - temperature
+    - weather_description
+    - wind_speed
+  percent_metrics: []
+  adhoc_filters: []
+  time_range: Last day
+  order_by_cols:
+    - '["weather_time_local", false]'
+  row_limit: 50
+  table_timestamp_format: '%Y-%m-%d %H:%M'
+  page_length: 10
+  include_search: true
+  show_cell_bars: true
+  color_pn: true
+uuid: 33333333-3333-4333-8333-333333333336
+dataset_uuid: 22222222-2222-4222-8222-222222222222
+version: 1.0.0

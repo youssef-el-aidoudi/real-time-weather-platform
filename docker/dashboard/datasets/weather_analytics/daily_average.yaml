@@ -1,0 +1,31 @@
+table_name: daily_average
+main_dttm_col: date
+description: >
+  Daily average temperature and wind speed per French city.
+  Aggregated from stg_weather_data by dbt. Used by the Daily Trend chart.
+schema: dev
+uuid: 22222222-2222-4222-8222-222222222223
+database_uuid: 11111111-1111-4111-8111-111111111111
+columns:
+  - column_name: city
+    type: TEXT
+    groupby: true
+    filterable: true
+  - column_name: date
+    type: DATE
+    is_dttm: true
+    groupby: true
+    filterable: true
+  - column_name: avg_temperature
+    type: DOUBLE PRECISION
+    groupby: false
+    filterable: true
+  - column_name: avg_wind_speed
+    type: DOUBLE PRECISION
+    groupby: false
+    filterable: true
+metrics:
+  - metric_name: row_count
+    expression: COUNT(*)
+    description: Number of rows
+version: 1.0.0

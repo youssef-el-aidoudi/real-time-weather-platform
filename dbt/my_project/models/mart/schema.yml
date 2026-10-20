@@ -1,0 +1,61 @@
+version: 2
+
+models:
+  - name: weather_report
+    description: >
+      Complete weather observations ready for BI tools (Superset).
+      A direct projection from stg_weather_data — no further aggregation.
+      Source of truth for all real-time charts and the live observations table.
+    columns:
+      - name: id
+        description: "Unique observation identifier"
+        tests:
+          - unique
+          - not_null
+      - name: city
+        description: "City name (e.g. Paris, Lyon, Marseille)"
+        tests:
+          - not_null
+      - name: temperature
+        description: "Air temperature at 2m above ground (°C)"
+        tests:
+          - not_null
+      - name: weather_description
+        description: "Human-readable weather condition (from WMO code)"
+        tests:
+          - not_null
+      - name: wind_speed
+        description: "Wind speed at 10m above ground (km/h)"
+        tests:
+          - not_null
+      - name: weather_time_local
+        description: "Observation timestamp in city local time"
+        tests:
+          - not_null
+      - name: inserted_at_local
+        description: "Row insertion time in city local time"
+        tests:
+          - not_null
+
+  - name: daily_average
+    description: >
+      Daily average temperature and wind speed per city.
+      Aggregates stg_weather_data by (city, date).
+      Used by Superset for the daily trend chart.
+    columns:
+      - name: city
+        description: "City name"
+        tests:
+          - not_null
+      - name: date
+        description: "Calendar date (truncated from weather_time_local)"
+        tests:
+          - not_null
+      - name: avg_temperature
+        description: "Daily average temperature (°C), rounded to 2 decimals"
+        tests:
+          - not_null
+      - name: avg_wind_speed
+        description: "Daily average wind speed (km/h), rounded to 2 decimals"
+        tests:
+          - not_null

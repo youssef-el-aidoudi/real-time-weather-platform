@@ -1,0 +1,25 @@
+slice_name: Weather Conditions
+description: Distribution of weather conditions during the latest hour
+viz_type: pie
+params:
+  datasource: 0__table
+  viz_type: pie
+  metric: record_count
+  groupby:
+    - weather_description
+  adhoc_filters: []
+  time_range: No filter
+  row_limit: 100
+  sort_by_metric: true
+  color_scheme: supersetColors
+  show_labels: true
+  show_legend: true
+  legendType: scroll
+  legendOrientation: bottom
+  label_type: key_value
+  number_format: SMART_NUMBER
+  donut: true
+  innerRadius: 45
+uuid: 33333333-3333-4333-8333-333333333335
+dataset_uuid: 22222222-2222-4222-8222-222222222222
+version: 1.0.0

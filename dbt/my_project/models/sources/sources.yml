@@ -1,0 +1,44 @@
+version: 2
+
+sources:
+  - name: dev
+    description: "Raw weather data ingested directly by the Python pipeline"
+    database: db
+    schema: dev
+    tables:
+      - name: raw_weather_data
+        description: "Raw, unmodified weather observations from Open-Meteo API"
+        columns:
+          - name: id
+            description: "Auto-incremented primary key"
+            tests:
+              - unique
+              - not_null
+          - name: city
+            description: "City name (e.g. Paris, Lyon)"
+            tests:
+              - not_null
+          - name: temperature
+            description: "Air temperature at 2m above ground (°C)"
+            tests:
+              - not_null
+          - name: weather_description
+            description: "Human-readable WMO weather condition"
+            tests:
+              - not_null
+          - name: wind_speed
+            description: "Wind speed at 10m above ground (km/h)"
+            tests:
+              - not_null
+          - name: time
+            description: "Observation timestamp in city local time"
+            tests:
+              - not_null
+          - name: inserted_at
+            description: "Row insertion timestamp (UTC)"
+            tests:
+              - not_null
+          - name: utc_offset
+            description: "UTC offset in hours (as TEXT, e.g. '2.0')"
+            tests:
+              - not_null

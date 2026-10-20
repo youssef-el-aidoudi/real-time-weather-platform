@@ -1,0 +1,31 @@
+slice_name: Daily Average Temperature
+description: Daily average temperature per French city (source dev.daily_average)
+viz_type: echarts_timeseries_bar
+params:
+  datasource: 0__table
+  viz_type: echarts_timeseries_bar
+  x_axis: date
+  time_grain_sqla: P1D
+  time_range: Last week
+  metrics:
+    - expressionType: SIMPLE
+      column:
+        column_name: avg_temperature
+        type: DOUBLE PRECISION
+      aggregate: AVG
+      label: Avg Temperature °C
+      optionName: metric_daily_avg_temp
+  groupby:
+    - city
+  adhoc_filters: []
+  row_limit: 1000
+  show_legend: true
+  legendType: scroll
+  legendOrientation: top
+  y_axis_format: .1f
+  y_axis_title: Temperature (°C)
+  rich_tooltip: true
+  stack: false
+uuid: 33333333-3333-4333-8333-333333333337
+dataset_uuid: 22222222-2222-4222-8222-222222222223
+version: 1.0.0

@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: stg_weather_data
+    description: >
+      Cleaned and deduplicated weather observations.
+      Deduplication strategy: ROW_NUMBER() OVER (PARTITION BY city, time ORDER BY inserted_at)
+      keeps only the first insertion per (city, time) pair.
+      Timestamps are converted from UTC server time to the city's local time using utc_offset.
+    columns:
+      - name: id
+        description: "Original id from raw_weather_data"
+        tests:
+          - unique
+          - not_null
+      - name: city
+        description: "City name"
+        tests:
+          - not_null
+      - name: temperature
+        description: "Air temperature at 2m (°C)"
+        tests:
+          - not_null
+      - name: weather_description
+        description: "Human-readable WMO weather condition"
+        tests:
+          - not_null
+      - name: wind_speed
+        description: "Wind speed at 10m (km/h)"
+        tests:
+          - not_null
+      - name: weather_time_local
+        description: "Observation timestamp in city local time (renamed from 'time')"
+        tests:
+          - not_null
+      - name: inserted_at_local
+        description: "Insertion timestamp converted to city local time"
+        tests:
+          - not_null

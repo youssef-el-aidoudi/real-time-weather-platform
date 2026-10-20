@@ -1,0 +1,28 @@
+slice_name: Current Average Wind Speed
+description: Average wind speed across monitored cities during the latest hour
+viz_type: big_number_total
+params:
+  datasource: 0__table
+  viz_type: big_number_total
+  metric:
+    expressionType: SIMPLE
+    column:
+      column_name: wind_speed
+      type: DOUBLE PRECISION
+    aggregate: AVG
+    label: Average wind speed
+    optionName: metric_wind
+  adhoc_filters: []
+  time_range: No filter
+  subheader: km/h across monitored cities
+  y_axis_format: .1f
+  header_font_size: 0.4
+  subheader_font_size: 0.15
+  color_picker:
+    r: 30
+    g: 136
+    b: 229
+    a: 1
+uuid: 33333333-3333-4333-8333-333333333332
+dataset_uuid: 22222222-2222-4222-8222-222222222222
+version: 1.0.0

@@ -1,0 +1,155 @@
+dashboard_title: France Live Weather
+description: >
+  Real-time weather monitoring for major French cities.
+  Powered by Open-Meteo API, Apache Airflow, dbt, PostgreSQL and Apache Superset.
+slug: france-live-weather
+uuid: 44444444-4444-4444-8444-444444444445
+position:
+  DASHBOARD_VERSION_KEY: v2
+  ROOT_ID:
+    id: ROOT_ID
+    type: ROOT
+    children:
+      - GRID_ID
+  GRID_ID:
+    id: GRID_ID
+    type: GRID
+    parents:
+      - ROOT_ID
+    children:
+      - ROW-KPI
+      - ROW-TREND
+      - ROW-SUMMARY
+      - ROW-DAILY
+      - ROW-TABLE
+  HEADER_ID:
+    id: HEADER_ID
+    type: HEADER
+    meta:
+      text: France Live Weather
+  ROW-KPI:
+    id: ROW-KPI
+    type: ROW
+    parents: [ROOT_ID, GRID_ID]
+    children: [CHART-TEMP, CHART-WIND]
+    meta:
+      background: BACKGROUND_TRANSPARENT
+  CHART-TEMP:
+    id: CHART-TEMP
+    type: CHART
+    parents: [ROOT_ID, GRID_ID, ROW-KPI]
+    children: []
+    meta:
+      width: 6
+      height: 20
+      sliceName: Current Average Temperature
+      chartId: 1
+      uuid: 33333333-3333-4333-8333-333333333331
+  CHART-WIND:
+    id: CHART-WIND
+    type: CHART
+    parents: [ROOT_ID, GRID_ID, ROW-KPI]
+    children: []
+    meta:
+      width: 6
+      height: 20
+      sliceName: Current Average Wind Speed
+      chartId: 2
+      uuid: 33333333-3333-4333-8333-333333333332
+  ROW-TREND:
+    id: ROW-TREND
+    type: ROW
+    parents: [ROOT_ID, GRID_ID]
+    children: [CHART-TREND]
+    meta:
+      background: BACKGROUND_TRANSPARENT
+  CHART-TREND:
+    id: CHART-TREND
+    type: CHART
+    parents: [ROOT_ID, GRID_ID, ROW-TREND]
+    children: []
+    meta:
+      width: 12
+      height: 45
+      sliceName: 24h Temperature Trend
+      chartId: 3
+      uuid: 33333333-3333-4333-8333-333333333333
+  ROW-SUMMARY:
+    id: ROW-SUMMARY
+    type: ROW
+    parents: [ROOT_ID, GRID_ID]
+    children: [CHART-CITY, CHART-CONDITIONS]
+    meta:
+      background: BACKGROUND_TRANSPARENT
+  CHART-CITY:
+    id: CHART-CITY
+    type: CHART
+    parents: [ROOT_ID, GRID_ID, ROW-SUMMARY]
+    children: []
+    meta:
+      width: 7
+      height: 40
+      sliceName: Temperature by City
+      chartId: 4
+      uuid: 33333333-3333-4333-8333-333333333334
+  CHART-CONDITIONS:
+    id: CHART-CONDITIONS
+    type: CHART
+    parents: [ROOT_ID, GRID_ID, ROW-SUMMARY]
+    children: []
+    meta:
+      width: 5
+      height: 40
+      sliceName: Weather Conditions
+      chartId: 5
+      uuid: 33333333-3333-4333-8333-333333333335
+  ROW-DAILY:
+    id: ROW-DAILY
+    type: ROW
+    parents: [ROOT_ID, GRID_ID]
+    children: [CHART-DAILY]
+    meta:
+      background: BACKGROUND_TRANSPARENT
+  CHART-DAILY:
+    id: CHART-DAILY
+    type: CHART
+    parents: [ROOT_ID, GRID_ID, ROW-DAILY]
+    children: []
+    meta:
+      width: 12
+      height: 40
+      sliceName: Daily Average Temperature
+      chartId: 7
+      uuid: 33333333-3333-4333-8333-333333333337
+  ROW-TABLE:
+    id: ROW-TABLE
+    type: ROW
+    parents: [ROOT_ID, GRID_ID]
+    children: [CHART-TABLE]
+    meta:
+      background: BACKGROUND_TRANSPARENT
+  CHART-TABLE:
+    id: CHART-TABLE
+    type: CHART
+    parents: [ROOT_ID, GRID_ID, ROW-TABLE]
+    children: []
+    meta:
+      width: 12
+      height: 45
+      sliceName: Live Weather Observations
+      chartId: 6
+      uuid: 33333333-3333-4333-8333-333333333336
+metadata:
+  chart_configuration: {}
+  global_chart_configuration:
+    scope:
+      rootPath: [ROOT_ID]
+      excluded: []
+    chartsInScope: [1, 2, 3, 4, 5, 6, 7]
+  color_scheme: supersetColors
+  refresh_frequency: 60
+  timed_refresh_immune_slices: []
+  expanded_slices: {}
+  default_filters: '{}'
+  native_filter_configuration: []
+version: 1.0.0
