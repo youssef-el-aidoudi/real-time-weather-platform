@@ -1,5 +1,4 @@
-# France Live Weather — Real-Time Data Engineering Pipeline
-
+#Real-Time Weather Data Platform
 > A production-grade data engineering pipeline that collects live weather data for major French cities, stores it in PostgreSQL, transforms it with dbt, orchestrates updates every 5 minutes with Apache Airflow, and serves an interactive Apache Superset dashboard.
 
 ---
