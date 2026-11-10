@@ -1,4 +1,4 @@
-#Real-Time Weather Data Platform
+# Real-Time Weather Data Platform
 > A production-grade data engineering pipeline that collects live weather data for major French cities, stores it in PostgreSQL, transforms it with dbt, orchestrates updates every 5 minutes with Apache Airflow, and serves an interactive Apache Superset dashboard.
 
 ---
@@ -375,5 +375,8 @@ docker compose down -v       # destroy all data (clean slate)
 
 ## 👤 Author
 
-Master 2 BDIA — Data Engineering Portfolio Project  
-Technologies: Python · PostgreSQL · dbt · Apache Airflow · Apache Superset · Docker
+**Youssef EL AIDOUDI** — M2 Databases & Artificial Intelligence (BDIA), Université Bourgogne Europe, Dijon, France.
+
+Looking for a 4–6 month end-of-studies internship in Data (Analyst, Engineer or BI), available from April 2027.
+
+[GitHub](https://github.com/youssef-el-aidoudi) · [LinkedIn](https://www.linkedin.com/in/youssef-el-aidoudi) · [youssefelaidoudi20@gmail.com](mailto:youssefelaidoudi20@gmail.com)
